@@ -26,4 +26,25 @@ class TaskController extends Controller
         }
 
     }
+
+
+    //update task with id
+    public function update(Request $request, $id)
+    {
+        try{
+            $validated = $request->validate([
+                'is_completed' => 'required|boolean',
+            ]);
+
+            $task = Task::findOrFail($id);
+            $task->is_completed = $validated['is_completed'];
+            $task->save();
+            
+            return sendResponseWithData('task', $task, true, 'Update Successfully', 200);
+
+        }catch (\Throwable $th) {
+            return sendResponseWithMessage(false, $th->getMessage(), 500);
+        }
+
+    }
 }

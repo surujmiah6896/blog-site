@@ -2,7 +2,7 @@
 
 A simple Laravel API project for managing blog posts and tasks.
 
-## 🚀 Features
+## Features
 
 - Blog Post CRUD
 - User Registration
@@ -12,7 +12,7 @@ A simple Laravel API project for managing blog posts and tasks.
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 

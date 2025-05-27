@@ -44,5 +44,17 @@ class PostController extends Controller
         }
     }
 
-    
+    // View a single post by ID
+    public function show($id)
+    {
+        try {
+            $post = Post::findOrFail($id);
+            return sendResponseWithData('post', $post, true, 'Post retrieved successfully', 200);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            return sendResponseWithMessage(false, 'Post not found', 404);
+        } catch (\Throwable $th) {
+            return sendResponseWithMessage(false, $th->getMessage(), 500);
+        }
+    }
+
 }

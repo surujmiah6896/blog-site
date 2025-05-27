@@ -27,5 +27,22 @@ class PostController extends Controller
 
     }
 
+    // List all posts
+    public function index()
+    {
+        try{
+            $posts = Post::all();
+
+            if ($posts->isEmpty()):
+                return sendResponseWithMessage(false, 'No posts found', 404);
+            endif;
+
+            return sendResponseWithData('post', $posts, true, 'get Successfully', 200);
+
+        }catch(\Throwable $th){
+            return sendResponseWithMessage(false, $th->getMessage(), 500);
+        }
+    }
+
     
 }

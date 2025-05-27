@@ -35,12 +35,14 @@ cp .env.example .env
 php artisan key:generate
 ```
 - Edit .env to match your database:
+```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=blog_site_web_app_db
 DB_USERNAME=root
 DB_PASSWORD=
+```
 
 ## Run Migrations
 ```bash
